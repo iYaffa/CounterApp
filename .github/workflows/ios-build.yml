@@ -23,7 +23,7 @@ jobs:
     - name: Build and Sign App
       run: |
         xcodebuild archive \
-          -project CounterApp/CounterApp.xcodeproj \
+          -project CounterApp.xcodeproj \
           -scheme CounterApp \
           -archivePath build/CounterApp.xcarchive \
           -configuration Debug \
@@ -33,7 +33,7 @@ jobs:
         xcodebuild -exportArchive \
           -archivePath build/CounterApp.xcarchive \
           -exportPath build/ \
-          -exportOptionsPlist CounterApp/CounterApp/exportOptions.plist
+          -exportOptionsPlist exportOptions.plist
 
     - name: Upload .ipa artifact
       uses: actions/upload-artifact@v4
